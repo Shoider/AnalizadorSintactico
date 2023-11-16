@@ -1,0 +1,391 @@
+Terminals unused in grammar
+
+   VOID
+   IF
+   ELSE
+   WHILE
+   DO
+   FOR
+   SWITCH
+   CASE
+   DEFAULT
+   RETURN
+   BREAK
+   STATIC
+   CONST
+   IGUALDAD
+   MENOR
+   MAYOR
+   MENORIGUAL
+   MAYORIGUAL
+   DIFERENTE
+   SUMA
+   RESTA
+   MULTIPLICACION
+   DIVISION
+   MODULO
+   SUMAASIG
+   RESTAASIG
+   MULTIPLICACIONASIG
+   DIVISIONASIG
+   MODULOASIG
+   INCREMENTO
+   DECREMENTO
+   ETIQUETA
+   SEPARACION
+   PARENTESIS_ABIERTO
+   PARENTESIS_CERRADO
+   CORCHETE_ABIERTO
+   CORCHETE_CERRADO
+   BLOQUE_ABIERTO
+   BLOQUE_CERRADO
+   '+'
+   '-'
+
+
+Gramática
+
+    0 $accept: prog $end
+
+    1 prog: declaracionInt
+    2     | declaracionFloat
+    3     | declaracionShort
+    4     | declaracionLong
+    5     | declaracionChar
+    6     | error
+
+    7 declaracionInt: INT IDENTIFICADOR ASIGNACION NUMERO FL
+
+    8 declaracionFloat: FLOAT IDENTIFICADOR ASIGNACION NUMEROFLOAT FL
+
+    9 declaracionShort: SHORT IDENTIFICADOR ASIGNACION NUMERO FL
+
+   10 declaracionLong: LONG IDENTIFICADOR ASIGNACION NUMERO FL
+
+   11 declaracionChar: CHAR IDENTIFICADOR ASIGNACION CHART FL
+
+
+Terminales con las reglas donde aparecen
+
+$end (0) 0
+'+' (43)
+'-' (45)
+error (256) 6
+INT (258) 7
+FLOAT (259) 8
+SHORT (260) 9
+LONG (261) 10
+CHAR (262) 11
+VOID (263)
+IF (264)
+ELSE (265)
+WHILE (266)
+DO (267)
+FOR (268)
+SWITCH (269)
+CASE (270)
+DEFAULT (271)
+RETURN (272)
+BREAK (273)
+STATIC (274)
+CONST (275)
+NUMERO (276) 7 9 10
+NUMEROFLOAT (277) 8
+IDENTIFICADOR (278) 7 8 9 10 11
+ASIGNACION (279) 7 8 9 10 11
+IGUALDAD (280)
+MENOR (281)
+MAYOR (282)
+MENORIGUAL (283)
+MAYORIGUAL (284)
+DIFERENTE (285)
+SUMA (286)
+RESTA (287)
+MULTIPLICACION (288)
+DIVISION (289)
+MODULO (290)
+SUMAASIG (291)
+RESTAASIG (292)
+MULTIPLICACIONASIG (293)
+DIVISIONASIG (294)
+MODULOASIG (295)
+INCREMENTO (296)
+DECREMENTO (297)
+FL (298) 7 8 9 10 11
+ETIQUETA (299)
+SEPARACION (300)
+CHART (301) 11
+PARENTESIS_ABIERTO (302)
+PARENTESIS_CERRADO (303)
+CORCHETE_ABIERTO (304)
+CORCHETE_CERRADO (305)
+BLOQUE_ABIERTO (306)
+BLOQUE_CERRADO (307)
+
+
+No terminales con las reglas donde aparecen
+
+$accept (55)
+    en la izquierda: 0
+prog (56)
+    en la izquierda: 1 2 3 4 5 6, en la derecha: 0
+declaracionInt (57)
+    en la izquierda: 7, en la derecha: 1
+declaracionFloat (58)
+    en la izquierda: 8, en la derecha: 2
+declaracionShort (59)
+    en la izquierda: 9, en la derecha: 3
+declaracionLong (60)
+    en la izquierda: 10, en la derecha: 4
+declaracionChar (61)
+    en la izquierda: 11, en la derecha: 5
+
+
+estado 0
+
+    0 $accept: . prog $end
+
+    error  desplazar e ir al estado 1
+    INT    desplazar e ir al estado 2
+    FLOAT  desplazar e ir al estado 3
+    SHORT  desplazar e ir al estado 4
+    LONG   desplazar e ir al estado 5
+    CHAR   desplazar e ir al estado 6
+
+    prog              ir al estado 7
+    declaracionInt    ir al estado 8
+    declaracionFloat  ir al estado 9
+    declaracionShort  ir al estado 10
+    declaracionLong   ir al estado 11
+    declaracionChar   ir al estado 12
+
+
+estado 1
+
+    6 prog: error .
+
+    $default  reduce usando la regla 6 (prog)
+
+
+estado 2
+
+    7 declaracionInt: INT . IDENTIFICADOR ASIGNACION NUMERO FL
+
+    IDENTIFICADOR  desplazar e ir al estado 13
+
+
+estado 3
+
+    8 declaracionFloat: FLOAT . IDENTIFICADOR ASIGNACION NUMEROFLOAT FL
+
+    IDENTIFICADOR  desplazar e ir al estado 14
+
+
+estado 4
+
+    9 declaracionShort: SHORT . IDENTIFICADOR ASIGNACION NUMERO FL
+
+    IDENTIFICADOR  desplazar e ir al estado 15
+
+
+estado 5
+
+   10 declaracionLong: LONG . IDENTIFICADOR ASIGNACION NUMERO FL
+
+    IDENTIFICADOR  desplazar e ir al estado 16
+
+
+estado 6
+
+   11 declaracionChar: CHAR . IDENTIFICADOR ASIGNACION CHART FL
+
+    IDENTIFICADOR  desplazar e ir al estado 17
+
+
+estado 7
+
+    0 $accept: prog . $end
+
+    $end  desplazar e ir al estado 18
+
+
+estado 8
+
+    1 prog: declaracionInt .
+
+    $default  reduce usando la regla 1 (prog)
+
+
+estado 9
+
+    2 prog: declaracionFloat .
+
+    $default  reduce usando la regla 2 (prog)
+
+
+estado 10
+
+    3 prog: declaracionShort .
+
+    $default  reduce usando la regla 3 (prog)
+
+
+estado 11
+
+    4 prog: declaracionLong .
+
+    $default  reduce usando la regla 4 (prog)
+
+
+estado 12
+
+    5 prog: declaracionChar .
+
+    $default  reduce usando la regla 5 (prog)
+
+
+estado 13
+
+    7 declaracionInt: INT IDENTIFICADOR . ASIGNACION NUMERO FL
+
+    ASIGNACION  desplazar e ir al estado 19
+
+
+estado 14
+
+    8 declaracionFloat: FLOAT IDENTIFICADOR . ASIGNACION NUMEROFLOAT FL
+
+    ASIGNACION  desplazar e ir al estado 20
+
+
+estado 15
+
+    9 declaracionShort: SHORT IDENTIFICADOR . ASIGNACION NUMERO FL
+
+    ASIGNACION  desplazar e ir al estado 21
+
+
+estado 16
+
+   10 declaracionLong: LONG IDENTIFICADOR . ASIGNACION NUMERO FL
+
+    ASIGNACION  desplazar e ir al estado 22
+
+
+estado 17
+
+   11 declaracionChar: CHAR IDENTIFICADOR . ASIGNACION CHART FL
+
+    ASIGNACION  desplazar e ir al estado 23
+
+
+estado 18
+
+    0 $accept: prog $end .
+
+    $default  aceptar
+
+
+estado 19
+
+    7 declaracionInt: INT IDENTIFICADOR ASIGNACION . NUMERO FL
+
+    NUMERO  desplazar e ir al estado 24
+
+
+estado 20
+
+    8 declaracionFloat: FLOAT IDENTIFICADOR ASIGNACION . NUMEROFLOAT FL
+
+    NUMEROFLOAT  desplazar e ir al estado 25
+
+
+estado 21
+
+    9 declaracionShort: SHORT IDENTIFICADOR ASIGNACION . NUMERO FL
+
+    NUMERO  desplazar e ir al estado 26
+
+
+estado 22
+
+   10 declaracionLong: LONG IDENTIFICADOR ASIGNACION . NUMERO FL
+
+    NUMERO  desplazar e ir al estado 27
+
+
+estado 23
+
+   11 declaracionChar: CHAR IDENTIFICADOR ASIGNACION . CHART FL
+
+    CHART  desplazar e ir al estado 28
+
+
+estado 24
+
+    7 declaracionInt: INT IDENTIFICADOR ASIGNACION NUMERO . FL
+
+    FL  desplazar e ir al estado 29
+
+
+estado 25
+
+    8 declaracionFloat: FLOAT IDENTIFICADOR ASIGNACION NUMEROFLOAT . FL
+
+    FL  desplazar e ir al estado 30
+
+
+estado 26
+
+    9 declaracionShort: SHORT IDENTIFICADOR ASIGNACION NUMERO . FL
+
+    FL  desplazar e ir al estado 31
+
+
+estado 27
+
+   10 declaracionLong: LONG IDENTIFICADOR ASIGNACION NUMERO . FL
+
+    FL  desplazar e ir al estado 32
+
+
+estado 28
+
+   11 declaracionChar: CHAR IDENTIFICADOR ASIGNACION CHART . FL
+
+    FL  desplazar e ir al estado 33
+
+
+estado 29
+
+    7 declaracionInt: INT IDENTIFICADOR ASIGNACION NUMERO FL .
+
+    $default  reduce usando la regla 7 (declaracionInt)
+
+
+estado 30
+
+    8 declaracionFloat: FLOAT IDENTIFICADOR ASIGNACION NUMEROFLOAT FL .
+
+    $default  reduce usando la regla 8 (declaracionFloat)
+
+
+estado 31
+
+    9 declaracionShort: SHORT IDENTIFICADOR ASIGNACION NUMERO FL .
+
+    $default  reduce usando la regla 9 (declaracionShort)
+
+
+estado 32
+
+   10 declaracionLong: LONG IDENTIFICADOR ASIGNACION NUMERO FL .
+
+    $default  reduce usando la regla 10 (declaracionLong)
+
+
+estado 33
+
+   11 declaracionChar: CHAR IDENTIFICADOR ASIGNACION CHART FL .
+
+    $default  reduce usando la regla 11 (declaracionChar)

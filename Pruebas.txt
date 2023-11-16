@@ -1,0 +1,5 @@
+int i = 10;
+float x = 3.5;
+short lb = 6;
+long z = 1354164;
+char c = 'x';
